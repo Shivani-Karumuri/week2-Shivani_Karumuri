@@ -4,13 +4,17 @@ from schemas.user_schema import UserCreate
 
 class UserRepository:
 
-    def create_user(self, db: Session, user: UserCreate):
-
-        new_user= User(
-            name= user.name,
-            email= user.email,
-            password= user.password,
-            mobile= user.mobile
+    def create_user(
+        self,
+        db: Session,
+        user: UserCreate,
+        password_hash: str | None = None,
+    ):
+        new_user = User(
+            name=user.name,
+            email=user.email,
+            password=password_hash or user.password,
+            mobile=user.mobile,
         )
 
         db.add(new_user)
@@ -18,6 +22,7 @@ class UserRepository:
         db.refresh(new_user)
 
         return new_user
+
 
     def get_user_by_email(self, db: Session, email: str):
         return db.query(User).filter(User.email == email).first()

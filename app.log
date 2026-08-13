@@ -1,0 +1,45 @@
+2026-08-13 15:55:45,116 | INFO | shopping_api | GET /docs -> 200 in 0.000 seconds
+2026-08-13 15:55:45,397 | INFO | shopping_api | GET /openapi.json -> 200 in 0.135 seconds
+2026-08-13 15:56:15,666 | INFO | shopping_api | POST /api/auth/login -> 200 in 0.787 seconds
+2026-08-13 15:57:15,187 | INFO | shopping_api | GET /users/me -> 200 in 0.013 seconds
+2026-08-13 15:58:10,587 | INFO | shopping_api | GET /products/ -> 200 in 0.030 seconds
+2026-08-13 15:59:11,607 | INFO | shopping_api | GET /docs/wrong-route -> 404 in 0.001 seconds
+2026-08-13 15:59:18,527 | INFO | shopping_api | GET /docs -> 200 in 0.002 seconds
+2026-08-13 15:59:18,677 | INFO | shopping_api | GET /openapi.json -> 200 in 0.001 seconds
+2026-08-13 16:32:36,087 | INFO | shopping_api | GET /docs -> 200 in 0.003 seconds
+2026-08-13 16:32:36,424 | INFO | shopping_api | GET /openapi.json -> 200 in 0.150 seconds
+2026-08-13 16:34:36,657 | INFO | shopping_api | POST /api/auth/login -> 200 in 0.517 seconds
+2026-08-13 16:36:27,042 | WARNING | shopping_api | POST /products/ -> 403 | Insufficient role permissions
+2026-08-13 16:36:27,043 | INFO | shopping_api | POST /products/ -> 403 in 0.028 seconds
+2026-08-13 16:37:17,972 | INFO | shopping_api | POST /api/auth/login -> 200 in 0.353 seconds
+2026-08-13 16:37:27,427 | INFO | shopping_api | POST /products/ -> 200 in 0.086 seconds
+2026-08-13 16:38:50,250 | WARNING | shopping_api | GET /products/999 -> 404 | Product not found
+2026-08-13 16:38:50,251 | INFO | shopping_api | GET /products/999 -> 404 in 0.009 seconds
+2026-08-13 16:38:57,175 | INFO | shopping_api | GET /docs -> 200 in 0.001 seconds
+2026-08-13 16:38:57,288 | INFO | shopping_api | GET /openapi.json -> 200 in 0.001 seconds
+2026-08-13 16:39:52,051 | WARNING | shopping_api | GET /users/me -> 401 | Not authenticated
+2026-08-13 16:39:52,051 | INFO | shopping_api | GET /users/me -> 401 in 0.002 seconds
+2026-08-13 16:46:00,396 | INFO | shopping_api | Home endpoint called
+2026-08-13 16:46:00,398 | INFO | shopping_api | GET / -> 200 in 0.030 seconds
+2026-08-13 16:46:18,870 | INFO | shopping_api | GET /milestone5/background-test -> 405 in 0.000 seconds
+2026-08-13 16:46:57,051 | INFO | shopping_api | GET /docs -> 200 in 0.000 seconds
+2026-08-13 16:46:57,231 | INFO | shopping_api | GET /openapi.json -> 200 in 0.075 seconds
+2026-08-13 16:47:11,214 | INFO | shopping_api | Background job scheduled
+2026-08-13 16:47:11,215 | INFO | shopping_api | POST /milestone5/background-test -> 200 in 0.002 seconds
+2026-08-13 16:47:11,219 | INFO | shopping_api | Background job started: Milestone 5 background task test
+2026-08-13 16:47:13,221 | INFO | shopping_api | Background job completed: Milestone 5 background task test
+2026-08-13 17:02:04,417 | INFO | shopping_api | GET /docs -> 200 in 0.000 seconds
+2026-08-13 17:02:04,719 | INFO | shopping_api | GET /openapi.json -> 200 in 0.101 seconds
+2026-08-13 17:03:44,633 | WARNING | shopping_api | POST /cart/add -> 401 | Not authenticated
+2026-08-13 17:03:44,645 | INFO | shopping_api | POST /cart/add -> 401 in 0.075 seconds
+2026-08-13 17:04:02,222 | INFO | shopping_api | POST /api/auth/login -> 200 in 0.626 seconds
+2026-08-13 17:04:08,356 | WARNING | shopping_api | POST /cart/add -> 400 | Not enough stock
+2026-08-13 17:04:08,357 | INFO | shopping_api | POST /cart/add -> 400 in 0.031 seconds
+2026-08-13 17:04:24,384 | INFO | shopping_api | POST /cart/add -> 200 in 0.022 seconds
+2026-08-13 17:04:44,258 | INFO | shopping_api | GET /cart/me -> 200 in 0.008 seconds
+2026-08-13 17:05:41,759 | INFO | shopping_api | POST /orders/checkout -> 200 in 0.170 seconds
+2026-08-13 17:05:41,761 | INFO | shopping_api | Background order processing started: order_id=6
+2026-08-13 17:05:43,778 | INFO | shopping_api | Order confirmation processed successfully: order_id=6, email=pra@example.com
+2026-08-13 17:11:08,709 | INFO | shopping_api | GET /orders/me -> 200 in 0.007 seconds
+2026-08-13 17:12:11,178 | WARNING | shopping_api | POST /orders/checkout -> 400 | Cart is empty
+2026-08-13 17:12:11,178 | INFO | shopping_api | POST /orders/checkout -> 400 in 0.009 seconds

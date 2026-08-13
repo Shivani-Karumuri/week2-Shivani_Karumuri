@@ -1,36 +1,74 @@
+# from sqlalchemy.orm import Session
+
+# from repositories.user_repository import UserRepository
+# from schemas.user_schema import UserCreate
+# from fastapi import HTTPException, status
+# from schemas.user_schema import UserCreate, UserLogin
+
+# class UserService:
+
+#     def __init__(self):
+#         self.user_repository = UserRepository()
+
+#     def register_user(self, db:Session, user: UserCreate):
+
+#         existing_user = self.user_repository.get_user_by_email(
+#             db,
+#             user.email
+#         )
+
+#         if existing_user:
+#             raise HTTPException(status_code=400, detail="Email already exists")
+
+#         return self.user_repository.create_user(db, user)
+
+#     def login_user(self, db:Session, user: UserLogin):
+
+#         existing_user = self.user_repository.login_user(
+#             db,
+#             user.email,
+#             user.password
+#         )
+
+#         if existing_user is None:
+#             raise HTTPException(status_code=401, detail="Invalid Email or password")
+
+#         return {"message": "Login Successful"}
+
+from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
+from app.core.security import hash_password
 from repositories.user_repository import UserRepository
 from schemas.user_schema import UserCreate
-from fastapi import HTTPException, status
-from schemas.user_schema import UserCreate, UserLogin
+
 
 class UserService:
-
     def __init__(self):
         self.user_repository = UserRepository()
 
-    def register_user(self, db:Session, user: UserCreate):
-
+    def register_user(
+        self,
+        db: Session,
+        user: UserCreate,
+    ):
         existing_user = self.user_repository.get_user_by_email(
             db,
-            user.email
+            user.email,
         )
 
         if existing_user:
-            raise HTTPException(status_code=400, detail="Email already exists")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Email already exists",
+            )
 
-        return self.user_repository.create_user(db, user)
+        hashed_password = hash_password(user.password)
 
-    def login_user(self, db:Session, user: UserLogin):
-
-        existing_user = self.user_repository.login_user(
+        return self.user_repository.create_user(
             db,
-            user.email,
-            user.password
+            user,
+            password_hash=hashed_password,
         )
 
-        if existing_user is None:
-            raise HTTPException(status_code=401, detail="Invalid Email or password")
 
-        return {"message": "Login Successful"}
